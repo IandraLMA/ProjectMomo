@@ -1,13 +1,43 @@
-<h3>Formulário de clientes</h3>
-<form>
-    <div class="container">
-        <div class="form-group row">
-            <div class="col-md-1">
-                <label class="">Nome</label>
+<h1 class="mt-4">Clientes</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cadastro</li>
+</ol>
+<div class="container">
+    {{cliente.nome}}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>ID:</label>
+                <input disabled="true" type="text" class="form-control" />
             </div>
-            <div class="col-md-2">
-                <input type="text" class="form-control" id="nome" />
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Data Cadastro:</label>
+                <input disabled="true" type="text" class="form-control" />
             </div>
         </div>
     </div>
-</form>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Nome:</label>
+                <input type="text" class="form-control" [(ngModel)]="cliente.nome" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>CPF:</label>
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success" (click)="clicar()">
+                <i class="fa fa-save"></i> Salvar
+            </button>
+
+        </div>
+    </div>
+</div>

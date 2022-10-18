@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ClientesService } from 'src/app/clientes.service';
 import { Cliente } from '../cliente';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -13,12 +16,28 @@ export class ClientesFormComponent implements OnInit {
   cliente: Cliente;
   sucesso: boolean = false;
   errors: String[];
+  id: number;
 
-  constructor(private service: ClientesService) {
+  constructor(private service: ClientesService, private routerA: ActivatedRoute, private router: Router) {
     this.cliente = new Cliente();
   }
 
   ngOnInit(): void {
+    const idC = +this.routerA.snapshot.paramMap.get("id");
+    console.log(idC);
+    if (idC > 0) {
+      this.id = idC;
+      this.service.buscarPorId(this.id).subscribe(response => {
+        this.cliente = response;
+      },
+        errorResponse => {
+          //this.router.navigate(["/clientes-lista"]);
+          this.cliente = new Cliente();
+        }
+      );
+    } else {
+      this.cliente = new Cliente();
+    }
   }
   onSubmit(): void {
     this.service.salvar(this.cliente).subscribe(response => {

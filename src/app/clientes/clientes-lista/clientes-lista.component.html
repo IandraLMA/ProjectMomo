@@ -33,7 +33,11 @@
                         <td>{{cliente.idade}}</td>
                         <td>{{cliente.cpf}}</td>
                         <td>{{cliente.dataCadastro}}</td>
-                        <td></td>
+                        <td>
+                            <button type="button" class="btn btn-primary" [routerLink]="['/clientes-form',cliente.id]">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

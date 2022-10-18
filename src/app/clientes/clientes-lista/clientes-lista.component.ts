@@ -16,6 +16,10 @@ export class ClientesListaComponent implements OnInit {
       this.clientes = response;
 
     });
+
+  }
+  editarCliente(): void {
+
   }
 
 

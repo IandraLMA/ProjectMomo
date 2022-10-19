@@ -13,10 +13,10 @@ export class ClientesFormComponent implements OnInit {
   cliente: Cliente;
   sucesso: boolean = false;
   errors: String[];
-
+  message:String;
   constructor(private service: ClientesService) {
     this.cliente = new Cliente();
-  }
+  } 
 
   ngOnInit(): void {
   }
@@ -25,12 +25,12 @@ export class ClientesFormComponent implements OnInit {
       console.log(response);
 
       this.cliente = response;
-      this.sucesso = true;
+      this.message = "Cliente salvo com sucesso.";
       this.errors = null;
     },
       errorResponse => {
         this.errors = errorResponse.error.erros;
-        this.sucesso = false;
+        this.message = null;
       }
     );
   }

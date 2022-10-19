@@ -4,14 +4,9 @@
 </ol>
 <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="alert alert-success" role="alert" *ngIf="sucesso ==true"> Cliente salvo com sucesso.</div>
-                <div class="alert alert-danger" role="alert" *ngFor=" let erro of errors">{{erro}} </div>
-            </div>
-        </div>
+        <app-dialog-message [message]="message" [errors]="errors"></app-dialog-message>
         <div class="row" *ngIf="cliente.id">
-            <div class="col-md-6">
+            <div class="col-md-6"> 
                 <div class="form-group">
                     <label>ID:</label>
                     <input disabled="true" type="text" class="form-control" [ngModel]="cliente.id" name="id" />

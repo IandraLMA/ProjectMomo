@@ -9,6 +9,7 @@ import { Cliente } from '../cliente';
 })
 export class ClientesListaComponent implements OnInit {
   clientes: Cliente[];
+  clienteSelecionado: Cliente;
   constructor(private clienteService: ClientesService) { }
 
   ngOnInit(): void {
@@ -20,6 +21,15 @@ export class ClientesListaComponent implements OnInit {
   }
   editarCliente(): void {
 
+  }
+
+  preparaDelecao(cliente: Cliente) {
+    this.clienteSelecionado = cliente;
+
+  }
+
+  deletarCliente() {
+    console.log(this.clienteSelecionado)
   }
 
 

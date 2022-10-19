@@ -37,4 +37,10 @@ export class ClientesService {
     return this.httpClient.get<any>(`http://localhost:8080/api/clientes/${id}`);
 
   }
+  atualizar(cliente: Cliente): Observable<Cliente> {
+    return this.httpClient.put<Cliente>("http://localhost:8080/api/clientes", cliente);
+
+  }
+
+
 }

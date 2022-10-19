@@ -17,6 +17,7 @@ export class ClientesFormComponent implements OnInit {
   sucesso: boolean = false;
   errors: String[];
   id: number;
+  atualizado: boolean = false;
 
   constructor(private service: ClientesService, private routerA: ActivatedRoute, private router: Router) {
     this.cliente = new Cliente();
@@ -40,17 +41,36 @@ export class ClientesFormComponent implements OnInit {
     }
   }
   onSubmit(): void {
-    this.service.salvar(this.cliente).subscribe(response => {
-      console.log(response);
+    if (this.cliente.id == null) {
+      this.service.salvar(this.cliente).subscribe(response => {
+        console.log(response);
 
-      this.cliente = response;
-      this.sucesso = true;
-      this.errors = null;
-    },
-      errorResponse => {
-        this.errors = errorResponse.error.erros;
-        this.sucesso = false;
-      }
-    );
+        this.cliente = response;
+        this.sucesso = true;
+        this.errors = null;
+
+      },
+        errorResponse => {
+          this.errors = errorResponse.error.erros;
+          this.sucesso = false;
+        }
+      );
+
+    } else {
+      this.service.atualizar(this.cliente).subscribe(response => {
+        console.log(response);
+
+        this.atualizado = true;
+        this.errors = null;
+      },
+        errorResponse => {
+          this.errors = errorResponse.error.erros;
+          this.atualizado = false;
+        }
+      );
+
+
+
+    }
   }
 }

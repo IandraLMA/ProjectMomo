@@ -16,11 +16,17 @@ import { SidebarComponent } from './template/sidebar/sidebar.component';
 const routes: Routes = [
 
 
-  { path: 'login' , component: LoginFormComponent},
-    { path: '', component: LayoutComponent , children:[
-       { path:'home', component: HomeComponent}
+    
+    { path: 'home', component: LayoutComponent , children :[
+      { path: '', component: HomeComponent}
+    ]
+    },
+    { path: '', component: LoginFormComponent  },
+    { 
+      path: 'index' , component: LayoutComponent, children :[
+        { path: 'home', component: HomeComponent}
       ]
-    }
+    },
   
 ];
 

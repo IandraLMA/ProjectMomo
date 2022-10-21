@@ -21,9 +21,12 @@ export class LoginFormComponent implements OnInit {
     this.cadastrando = false;
   }
 
+  enviar(){
+    this.router.navigate(["/index"]);
+  }
   onSubmit(){
     console.log(`User : ${this.username} , Pass: ${this.username}`)
-    this.router.navigate(["/home"]);
+    this.router.navigate(["/index"]);
   }
 
   preparaCadastrar(evt : Event){

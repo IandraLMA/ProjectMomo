@@ -5,10 +5,13 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 
 
+
+
 @NgModule({
   declarations: [
     NavbarComponent,
     SidebarComponent
+
   ],
   imports: [
     CommonModule,
@@ -17,6 +20,7 @@ import { RouterModule } from '@angular/router';
   exports: [
     NavbarComponent,
     SidebarComponent
+    
   ]
 })
 export class TemplateModule { }

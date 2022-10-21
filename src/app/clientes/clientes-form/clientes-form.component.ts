@@ -32,7 +32,7 @@ export class ClientesFormComponent implements OnInit {
         this.cliente = response;
       },
         errorResponse => {
-          //this.router.navigate(["/clientes-lista"]);
+          
           this.cliente = new Cliente();
         }
       );

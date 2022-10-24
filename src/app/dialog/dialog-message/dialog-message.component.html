@@ -1,0 +1,6 @@
+<div class="row" *ngIf="message !=null || errors !=null">
+    <div class="col-md-12">
+        <div class="alert alert-success" role="alert"  *ngIf="message !=null"  > {{message}} </div>
+        <div class="alert alert-danger" role="alert" *ngFor=" let erro of errors">{{erro}} </div>
+    </div>
+</div>
